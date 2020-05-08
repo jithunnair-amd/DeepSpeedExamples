@@ -149,7 +149,7 @@ def get_train_dataset(args, index, finetune=False, shuffle=True):
                 os.path.join(args.data_path_prefix,
                              dataset_paths['wiki_pretrain_dataset']),
                 args.logger, args.max_seq_length, index,
-                PretrainDataType.NUMPY, args.max_predictions_per_seq)
+                PretrainDataType.WIKIPEDIA, args.max_predictions_per_seq)
             datalengths.append(len(wiki_pretrain_dataset))
             dataloaders[i] = get_dataloader(args, wiki_pretrain_dataset)
             batch_mapping[i] = PretrainBatch
