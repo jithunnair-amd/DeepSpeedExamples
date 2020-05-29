@@ -425,6 +425,9 @@ def prepare_optimizer_parameters(args, model):
 
 
 def prepare_model_optimizer(args):
+    # Initializes the distributed backend which will take care of sychronizing nodes/GPUs
+    torch.distributed.init_process_group(backend='nccl')
+
     # Loading Model
     model = BertMultiTask(args)
 
